@@ -1,0 +1,22 @@
+{
+  "name": "com.outsystems.experts.todaywidgetplugin",
+  "version": "1.0.0",
+  "description": "",
+  "cordova": {
+    "id": "com.outsystems.experts.todaywidgetplugin",
+    "platforms": []
+  },
+  "dependencies": {
+    "elementtree": "^0.1.7",
+    "file-system": "^2.2.2",
+    "path": "^0.12.7",
+    "plist": "^2.1.0",
+    "q": "^1.5.1",
+    "xcode": "git+https://github.com/apache/cordova-node-xcode.git"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "",
+  "license": "ISC"
+}

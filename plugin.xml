@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.outsystems.experts.todaywidgetplugin" version="1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>outsystems-ios-today-widget-plugin</name>
+    <js-module name="outsystems-ios-today-widget-plugin" src="www/outsystems-ios-today-widget-plugin.js">
+        <clobbers target="cordova.plugins.outsystems-ios-today-widget-plugin" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*"></config-file>
+
+        <config-file parent="com.apple.security.application-groups" target="*-Debug.plist">
+        <array>
+            <string>group.__APP_IDENTIFIER__</string>
+        </array>
+        </config-file>
+        <config-file parent="com.apple.security.application-groups" target="*-Release.plist">
+        <array>
+            <string>group.__APP_IDENTIFIER__</string>
+        </array>
+        </config-file>
+
+        <hook type="after_platform_add" src="hooks/prerequisites.js"/>
+        <hook type="after_platform_add" src="hooks/copyExtensionFolderToIosProjectFolder.js"/>
+        <hook type="after_platform_add" src="hooks/addTodayWidgetToProject.js"/>
+        <hook type="after_platform_add" src="hooks/configureTodayPlist.js"/>
+        <hook type="after_prepare" src="hooks/fixAppEntitlements.js"/>
+    </platform>
+</plugin>
