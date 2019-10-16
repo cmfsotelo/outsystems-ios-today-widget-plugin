@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.__APP_IDENTIFIER__</string>
+		<string>group.com.outsystems.experts.todaysample</string>
 	</array>
 </dict>
 </plist>
