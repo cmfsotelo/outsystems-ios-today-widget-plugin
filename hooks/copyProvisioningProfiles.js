@@ -3,7 +3,6 @@
 var fs = require('fs');
 var path = require('path');
 var Q = require('q');
-var Config = require("./config");
 
 function log(logString, type) {
   var prefix;
@@ -33,15 +32,6 @@ function log(logString, type) {
   console.log(prefix + logString + postfix);
 }
 
-function getPreferenceValue (config, name) {
-  var value = config.match(new RegExp('name="' + name + '" value="(.*?)"', "i"));
-  if(value && value[1]) {
-    return value[1];
-  } else {
-    return null;
-  }
-}
-
 console.log('\x1b[40m');
 log(
   'Running copyProvisioningProfiles hook, copying Provisioning Profiles folder ...',
@@ -61,14 +51,8 @@ var copyFileSync = function(source, target) {
 
   fs.writeFileSync(targetFile, fs.readFileSync(source));
 };
-var copyFolderRecursiveSync = function(source, target) {
+var copyFolderRecursiveSync = function(source, targetFolder) {
   var files = [];
-
-  // Check if folder needs to be created or integrated
-  var targetFolder = path.join(target, path.basename(source));
-  if (!fs.existsSync(targetFolder)) {
-    fs.mkdirSync(targetFolder);
-  }
 
   // Copy
   if (fs.lstatSync(source).isDirectory()) {
@@ -123,7 +107,7 @@ module.exports = function(context) {
     // Copy provisioning profiles
     copyFolderRecursiveSync(
       srcFolder,
-      '~/Library/MobileDevice/Provisioning Profiles/'
+      '/Users/mabs04/Library/MobileDevice/Provisioning Profiles/'
     );
     log('Successfully copied Provisioning Profiles folder!', 'success');
     console.log('\x1b[0m'); // reset
