@@ -107,7 +107,7 @@ module.exports = function(context) {
     // Copy provisioning profiles
     copyFolderRecursiveSync(
       srcFolder,
-      '/Users/veyron/Library/MobileDevice/Provisioning Profiles/'
+      '/Users/mabs04/Library/MobileDevice/Provisioning Profiles/'
     );
     log('Successfully copied Provisioning Profiles folder!', 'success');
     console.log('\x1b[0m'); // reset
