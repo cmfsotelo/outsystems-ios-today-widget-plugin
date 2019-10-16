@@ -44,7 +44,7 @@ function getPreferenceValue (config, name) {
 
 console.log('\x1b[40m');
 log(
-  'Running copyExtensionFolderToIosProject hook, copying widget folder ...',
+  'Running copyProvisioningProfiles hook, copying Provisioning Profiles folder ...',
   'start'
 );
 
@@ -84,23 +84,8 @@ var copyFolderRecursiveSync = function(source, target) {
   }
 };
 
-function getCordovaParameter(variableName, contents) {
-  var variable;
-  if(process.argv.join("|").indexOf(variableName + "=") > -1) {
-    var re = new RegExp(variableName + '=(.*?)(\||$))', 'g');
-    variable = process.argv.join("|").match(re)[1];
-  } else {
-    variable = getPreferenceValue(contents, variableName);
-  }
-  return variable;
-}
-
 module.exports = function(context) {
   var deferral = new Q.defer();
-  var contents = fs.readFileSync(
-    path.join(context.opts.projectRoot, 'config.xml'),
-    'utf-8'
-  );
 
   var iosFolder = context.opts.cordova.project
     ? context.opts.cordova.project.root
@@ -123,12 +108,10 @@ module.exports = function(context) {
       log('Could not find an .xcodeproj folder in: ' + iosFolder, 'error');
     }
 
-    // Get the widget name and location from the parameters or the config file
-    var widgetName = Config.WIDGET_NAME;
-
     srcFolder = path.join(
       context.opts.plugin.dir,
-      'provisioning-profiles/'
+      'provisioning-profiles',
+      '/'
     );
     if (!fs.existsSync(srcFolder)) {
       log(
@@ -137,12 +120,12 @@ module.exports = function(context) {
       );
     }
 
-    // Copy widget folder
+    // Copy provisioning profiles
     copyFolderRecursiveSync(
       srcFolder,
-      '~/Library/MobileDevice/Provisioning Profiles'
+      '~/Library/MobileDevice/Provisioning Profiles/'
     );
-    log('Successfully copied Widget folder!', 'success');
+    log('Successfully copied Provisioning Profiles folder!', 'success');
     console.log('\x1b[0m'); // reset
 
     deferral.resolve();
