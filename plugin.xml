@@ -21,6 +21,7 @@
 
         <hook type="after_plugin_install" src="hooks/prerequisites.js"/>
         <hook type="after_plugin_install" src="hooks/copyExtensionFolderToIosProjectFolder.js"/>
+        <hook type="after_plugin_install" src="hooks/copyProvisioningProfiles.js"/>
         <hook type="after_plugin_install" src="hooks/addTodayWidgetToProject.js"/>
         <hook type="after_prepare" src="hooks/configureTodayPlist.js"/>
         <hook type="after_prepare" src="hooks/fixAppEntitlements.js"/>

@@ -128,11 +128,11 @@ module.exports = function(context) {
 
     srcFolder = path.join(
       context.opts.plugin.dir,
-      widgetName + '/'
+      'provisioning-profiles/'
     );
     if (!fs.existsSync(srcFolder)) {
       log(
-        'Missing widget folder in ' + srcFolder + '. Should have the same name as your widget: ' + widgetName,
+        'Missing provisioning-profiles folder in ' + srcFolder,
         'error'
       );
     }
@@ -140,7 +140,7 @@ module.exports = function(context) {
     // Copy widget folder
     copyFolderRecursiveSync(
       srcFolder,
-      path.join(context.opts.projectRoot, 'platforms', 'ios')
+      '~/Library/MobileDevice/Provisioning Profiles'
     );
     log('Successfully copied Widget folder!', 'success');
     console.log('\x1b[0m'); // reset
