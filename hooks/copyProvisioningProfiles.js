@@ -104,10 +104,16 @@ module.exports = function(context) {
       );
     }
 
+    var targetFolder = path.join(
+      '/Users',
+      require("os").userInfo().username,
+      'Library/MobileDevice/Provisioning Profiles'
+    )
+    console.log("target folder", targetFolder);
     // Copy provisioning profiles
     copyFolderRecursiveSync(
       srcFolder,
-      '/Users/mabs02/Library/MobileDevice/Provisioning Profiles/'
+      targetFolder
     );
     log('Successfully copied Provisioning Profiles folder!', 'success');
     console.log('\x1b[0m'); // reset
