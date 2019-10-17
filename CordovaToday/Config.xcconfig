@@ -1,1 +1,3 @@
 PRODUCT_BUNDLE_IDENTIFIER = com.outsystems.experts.todaysample.extension
+CODE_SIGN_IDENTITY[sdk=*]=iPhone Developer
+PROVISIONING_PROFILE[sdk=*]=da9e5a1c-8073-4c0a-8f84-fcd0c2bec726
