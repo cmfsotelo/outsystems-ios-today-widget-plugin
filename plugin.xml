@@ -32,7 +32,7 @@
                     <key>com.outsystems.experts.todaysample.extension</key>
                     <string>da9e5a1c-8073-4c0a-8f84-fcd0c2bec726</string>
                 </dict>
-            <array>
+            </array>
         </config-file>
     </platform>
 </plugin>
