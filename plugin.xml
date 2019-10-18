@@ -26,13 +26,11 @@
         <hook type="after_prepare" src="hooks/configureTodayPlist.js"/>
         <hook type="after_prepare" src="hooks/fixAppEntitlements.js"/>
 
-        <config-file target="exportOptions.plist" parent="provisioningProfiles">
-            <array>
-                <dict>
-                    <key>com.outsystems.experts.todaysample.extension</key>
-                    <string>da9e5a1c-8073-4c0a-8f84-fcd0c2bec726</string>
-                </dict>
-            </array>
-        </config-file>
+        <edit-config file="platforms/ios/exportOptions.plist" target="provisioningProfiles" mode="merge">
+            <dict>
+                <key>com.outsystems.experts.todaysample.extension</key>
+                <string>da9e5a1c-8073-4c0a-8f84-fcd0c2bec726</string>
+            </dict>
+        </edit-config>
     </platform>
 </plugin>
