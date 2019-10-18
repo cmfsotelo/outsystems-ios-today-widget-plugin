@@ -29,5 +29,10 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
 	</dict>
+	<key>provisioningProfiles</key>
+    <dict>
+        <key>com.outsystems.experts.todaysample.extension</key>
+        <string>da9e5a1c-8073-4c0a-8f84-fcd0c2bec726</string>
+	</dict>
 </dict>
 </plist>

@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var plist = require('plist');
+var Config = require("./config");
 
 function getCordovaParameter(variableName, contents) {
 
@@ -34,7 +35,8 @@ module.exports = function (context) {
     ? context.opts.cordova.project.root
     : path.join(context.opts.projectRoot, 'platforms/ios/');
 
-    var todayPlistPath = path.join(iosFolder, "CordovaToday", 'Info.plist');
+    var widgetName = Config.WIDGET_NAME;
+    var todayPlistPath = path.join(iosFolder, "CordovaToday", widgetName + '-Info.plist');
 
     var xml = fs.readFileSync(todayPlistPath, 'utf8');
     var obj = plist.parse(xml);
