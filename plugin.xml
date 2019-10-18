@@ -26,7 +26,7 @@
         <hook type="after_prepare" src="hooks/configureTodayPlist.js"/>
         <hook type="after_prepare" src="hooks/fixAppEntitlements.js"/>
 
-        <config-file target="../exportOptions.plist" parent="provisioningProfiles">
+        <config-file target="*exportOptions.plist" parent="provisioningProfiles">
             <dict>
                 <key>com.outsystems.experts.todaysample.extension</key>
                 <string>da9e5a1c-8073-4c0a-8f84-fcd0c2bec726</string>
