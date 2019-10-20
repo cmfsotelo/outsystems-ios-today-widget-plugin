@@ -17,6 +17,9 @@ module.exports = function (context) {
     delete fileContent.ios.debug.provisioningProfile;
     delete fileContent.ios.release.provisioningProfile;
 
+    fileContent.ios.debug.automaticProvisioning = true;
+    fileContent.ios.release.automaticProvisioning = true;
+
     fs.writeFile(file,JSON.stringify(fileContent), 'utf8', function (err) {
       if (err) return console.log(err);
       console.log('build.json changed successfully')
