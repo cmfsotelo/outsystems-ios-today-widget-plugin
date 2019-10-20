@@ -23,7 +23,7 @@
         <hook type="after_plugin_install" src="hooks/copyExtensionFolderToIosProjectFolder.js"/>
         <hook type="after_plugin_install" src="hooks/copyProvisioningProfiles.js"/>
         <hook type="after_plugin_install" src="hooks/addTodayWidgetToProject.js"/>
-        <hook type="after_plugin_install" src="hooks/fixBuildJson.js"/>
+        <hook type="before_build" src="hooks/fixBuildJson.js"/>
         <hook type="after_prepare" src="hooks/configureTodayPlist.js"/>
         <hook type="after_prepare" src="hooks/fixAppEntitlements.js"/>
     </platform>
